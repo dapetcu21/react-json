@@ -23,7 +23,7 @@ module.exports = {
 			placeholder: this.props.settings.placeholder || '',
 			onChange: this.updateValue,
 			onBlur: this.setValue,
-			ref: 'input',
+			ref: (v) => this._input = v,
 			onKeyDown: this.handleKeyDown
 		});
 	},
@@ -86,7 +86,7 @@ module.exports = {
 	},
 
 	focus: function(){
-		var node = this.refs.input.getDOMNode();
+		var node = this._input;
 		node.focus();
 		node.value = node.value;
 	}
