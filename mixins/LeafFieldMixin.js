@@ -23,7 +23,7 @@ module.exports = {
 			placeholder: this.props.settings.placeholder || '',
 			onChange: this.updateValue,
 			onBlur: this.setValue,
-			ref: (v) => this._input = v,
+			ref: (function (v) { this._input = v }).bind(this),
 			onKeyDown: this.handleKeyDown
 		});
 	},
